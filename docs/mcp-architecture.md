@@ -16,20 +16,20 @@ A **Model Context Protocol (MCP) server** is a Node.js process that implements t
 ### Communication Flow
 
 ```
-Claude Client (Code/Desktop) ←→ MCP Server (Node.js)
-         │                           │
-         │    1. Launch subprocess    │
-         │ ─────────────────────────→ │
-         │                           │
-         │    2. "tools/list"         │
-         │ ─────────────────────────→ │
-         │    Tool definitions        │
-         │ ←───────────────────────── │
-         │                           │
-         │    3. "tools/call"         │
-         │ ─────────────────────────→ │
-         │    Tool execution result   │
-         │ ←───────────────────────── │
+Claude Client (Code/Desktop) ←─────────→ MCP Server (Node.js)
+            │                                │
+            │    1. Launch subprocess        │
+            │ ─────────────────────────────→ │
+            │                                │
+            │    2. "tools/list"             │
+            │ ─────────────────────────────→ │
+            │    Tool definitions            │
+            │ ←───────────────────────────── │
+            │                                │
+            │    3. "tools/call"             │
+            │ ─────────────────────────────→ │
+            │    Tool execution result       │
+            │ ←───────────────────────────── │
 ```
 
 ### Integration with Claude

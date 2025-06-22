@@ -2,7 +2,7 @@
 
 ## Adding New WordPress Tools
 
-### 1. Define Your Tool
+### • Define Your Tool
 
 Add tool definition to the `ListToolsRequestSchema` handler in `src/index.ts`:
 
@@ -28,7 +28,7 @@ Add tool definition to the `ListToolsRequestSchema` handler in `src/index.ts`:
 }
 ```
 
-### 2. Implement Tool Logic
+### • Implement Tool Logic
 
 Add tool execution to the `CallToolRequestSchema` handler:
 
@@ -50,7 +50,7 @@ if (name === "wp_search_docs") {
 }
 ```
 
-### 3. Development Workflow
+### • Development Workflow
 
 #### Setup Development Environment
 ```bash
@@ -156,9 +156,9 @@ return {
 ## Testing Integration
 
 ### With Claude Code
-1. Update your `~/.claude/mcp.json` configuration
-2. Restart Claude Code
-3. Test tools in a conversation
+- Update your `~/.claude/mcp.json` configuration
+- Restart Claude Code
+- Test tools in a conversation
 
 ### Manual Testing
 Use the command line examples above to test JSON-RPC communication directly.

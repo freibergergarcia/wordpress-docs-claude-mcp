@@ -10,6 +10,7 @@
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,11 +19,31 @@
     "documentation",
     "claude",
     "ai",
-    "developer-tools"
+    "developer-tools",
+    "model-context-protocol",
+    "wp-docs",
+    "vip"
   ],
   "author": "freibergergarcia",
   "license": "MIT",
   "type": "commonjs",
+  "homepage": "https://github.com/freibergergarcia/wordpress-docs-claude-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freibergergarcia/wordpress-docs-claude-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/freibergergarcia/wordpress-docs-claude-mcp/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "docs/"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.0",
     "axios": "^1.10.0",

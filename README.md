@@ -18,37 +18,52 @@ A Model Context Protocol (MCP) server that provides WordPress documentation and 
 
 ### For Claude Code
 
-Add the following to your Claude Code MCP configuration file (`~/.claude/mcp.json`):
+1. **Find your project path:**
+   ```bash
+   pwd  # Run this in your project directory
+   ```
 
-```json
-{
-  "mcpServers": {
-    "wordpress-docs": {
-      "command": "node",
-      "args": ["dist/index.js"],
-      "cwd": "."
-    }
-  }
-}
-```
+2. **Create/edit the MCP configuration file** (`~/.claude/mcp.json`):
+   ```json
+   {
+     "mcpServers": {
+       "wordpress-docs": {
+         "command": "node",
+         "args": ["dist/index.js"],
+         "cwd": "/absolute/path/to/wordpress-docs-claude-mcp"
+       }
+     }
+   }
+   ```
+   Replace `/absolute/path/to/wordpress-docs-claude-mcp` with your actual project path.
+
+3. **Restart Claude Code** (if it's currently running)
+
+4. **Test in a conversation:**
+   - "What MCP tools are available?"
+   - "Use the hello_wp tool to greet [your name]"
 
 ### For Claude Desktop
 
-Add the following to your Claude Desktop configuration file:
-- **macOS**: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+1. **Edit the Claude Desktop configuration file:**
+   - **macOS**: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+   - **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
 
-```json
-{
-  "mcpServers": {
-    "wordpress-docs": {
-      "command": "node",
-      "args": ["dist/index.js"],
-      "cwd": "."
-    }
-  }
-}
-```
+2. **Add the server configuration:**
+   ```json
+   {
+     "mcpServers": {
+       "wordpress-docs": {
+         "command": "node",
+         "args": ["dist/index.js"],
+         "cwd": "/absolute/path/to/wordpress-docs-claude-mcp"
+       }
+     }
+   }
+   ```
+   Replace `/absolute/path/to/wordpress-docs-claude-mcp` with your actual project path.
+
+3. **Restart Claude Desktop**
 
 ## Available Tools
 
@@ -56,6 +71,11 @@ Add the following to your Claude Desktop configuration file:
 - **Description**: A simple test tool to verify the MCP server is working
 - **Parameters**: 
   - `name` (optional): Name to greet
+
+### hello_wp
+- **Description**: WordPress-themed greeting tool for testing WordPress context
+- **Parameters**: 
+  - `name` (required): Name to greet with WordPress context
 
 ## Documentation
 
@@ -78,4 +98,9 @@ echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {}}' | node 
 Test the hello_world tool:
 ```bash
 echo '{"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "hello_world", "arguments": {"name": "Claude"}}}' | node dist/index.js | jq
+```
+
+Test the hello_wp tool:
+```bash
+echo '{"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "hello_wp", "arguments": {"name": "Developer"}}}' | node dist/index.js | jq
 ```

@@ -28,6 +28,20 @@ server.setRequestHandler(types_js_1.ListToolsRequestSchema, async () => {
                     },
                 },
             },
+            {
+                name: "hello_wp",
+                description: "WordPress-themed greeting tool for testing WordPress context",
+                inputSchema: {
+                    type: "object",
+                    properties: {
+                        name: {
+                            type: "string",
+                            description: "Name to greet with WordPress context",
+                        },
+                    },
+                    required: ["name"],
+                },
+            },
         ],
     };
 });
@@ -40,6 +54,26 @@ server.setRequestHandler(types_js_1.CallToolRequestSchema, async (request) => {
                 {
                     type: "text",
                     text: `Hello, ${nameArg}! This is your WordPress Docs MCP server working correctly.`,
+                },
+            ],
+        };
+    }
+    if (name === "hello_wp") {
+        const nameArg = args?.name;
+        if (!nameArg || typeof nameArg !== 'string') {
+            throw new Error('Name parameter is required and must be a string');
+        }
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: `👋 Hello, ${nameArg}! Welcome to the WordPress ecosystem! 🚀\n\n` +
+                        `You're now connected to the WordPress Docs MCP server, ready to help with:\n` +
+                        `• WordPress Core documentation\n` +
+                        `• WordPress VIP platform guidance\n` +
+                        `• Development best practices\n` +
+                        `• Plugin and theme development\n\n` +
+                        `Happy coding with WordPress! 💙`,
                 },
             ],
         };

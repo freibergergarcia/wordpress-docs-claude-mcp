@@ -1,7 +1,7 @@
 {
   "name": "wordpress-docs-claude-mcp",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Model Context Protocol (MCP) server that provides WordPress documentation and development tools for Claude Code and Claude Desktop.",
   "main": "dist/index.js",
   "bin": {
     "wordpress-docs-mcp": "dist/index.js"
@@ -12,9 +12,9 @@
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["mcp", "wordpress", "documentation", "claude", "ai", "developer-tools"],
+  "author": "freibergergarcia",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.0"
